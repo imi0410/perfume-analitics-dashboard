@@ -1,11 +1,12 @@
 import pandas as pd
 from pathlib import Path
+import st
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 RAW_PATH = BASE_DIR / 'data' / 'raw' / 'fragrance.csv'
 CLEANED_PATH = BASE_DIR / 'data' / 'cleaned'
 
-def load_data(path: str = RAW_PATH):
+def load_data(path: Path = RAW_PATH):
     df = pd.read_csv(path, sep=';', encoding='latin1', on_bad_lines='skip')
     return df
 
@@ -43,6 +44,10 @@ def clean_data(df: pd.DataFrame):
 def export_cleaned_data(df: pd.DataFrame, path: str = CLEANED_PATH):
     cleaned_df = df.copy()
     cleaned_df.to_csv(CLEANED_PATH / "fragrance_cleaned.csv", index=False)
+
+@st.cache_data
+def load_cleaned_data(path: Path = CLEANED_PATH / "fragrance_cleaned.csv"):
+    return pd.read_csv(path)
 
 if __name__ == '__main__':
     export_cleaned_data(clean_data(load_data(RAW_PATH)))
