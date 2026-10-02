@@ -1,6 +1,6 @@
 import pandas as pd
 from pathlib import Path
-import st
+import streamlit as st
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 RAW_PATH = BASE_DIR / 'data' / 'raw' / 'fragrance.csv'
@@ -33,7 +33,7 @@ def clean_data(df: pd.DataFrame):
     cleaned_df = cleaned_df[cleaned_df["year"] >= 1980]
     cleaned_df["year"] = cleaned_df["year"].astype(int)
     #converting to int from float
-    cleaned_df["rating_count"] = cleaned_df["rating_count"] = cleaned_df["rating_count"].astype(int)
+    cleaned_df["rating_count"] = cleaned_df["rating_count"].astype(int)
     #droping duplicated rows
     cleaned_df = cleaned_df.drop_duplicates()
     #filling nulls with None
