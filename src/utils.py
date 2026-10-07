@@ -9,7 +9,6 @@ def set_jpg_background(jpg_file_path: str):
     st.markdown(
         f"""
         <style>
-        /* 1. Fejléc átlátszóvá tétele, visszanyitó gomb megtartása */
         header[data-testid="stHeader"] {{
             background-color: transparent !important;
         }}
@@ -22,7 +21,6 @@ def set_jpg_background(jpg_file_path: str):
             border-radius: 8px !important;
         }}
 
-        /* 2. Háttérkép finom réteggel */
         .stApp {{
             background-image: 
                 linear-gradient(rgba(255, 255, 255, 0.70), rgba(255, 255, 255, 0.70)),
@@ -33,7 +31,6 @@ def set_jpg_background(jpg_file_path: str):
             background-attachment: fixed;
         }}
 
-        /* 3. Margók minimalizálása, cím felhúzása */
         .block-container,
         [data-testid="stMainBlockContainer"],
         .stMainBlockContainer {{
@@ -48,7 +45,6 @@ def set_jpg_background(jpg_file_path: str):
             padding-top: 0rem !important;
         }}
 
-        /* 4. Mélyfekete Sidebar */
         section[data-testid="stSidebar"] {{
             background-color: #0E0E10 !important;
         }}
@@ -88,9 +84,31 @@ def set_jpg_background(jpg_file_path: str):
             fill: #8B949E !important;
         }}
 
-        /* 5. Glassmorphism kártyák a leendő diagramok és KPI-k mögé */
-        div[data-testid="stVerticalBlock"] > div:has(div.stPlotlyChart),
         div[data-testid="stMetric"] {{
+            background: rgba(255, 255, 255, 0.65) !important;
+            backdrop-filter: blur(12px) !important;
+            border-radius: 16px !important;
+            padding: 16px !important;
+            box-shadow: 0 8px 24px 0 rgba(0, 0, 0, 0.06) !important;
+            border: 1px solid rgba(255, 255, 255, 0.4) !important;
+        }}
+
+        div[data-testid="stMetric"] label,
+        div[data-testid="stMetric"] div {{
+            color: #121113 !important;
+        }}
+
+        div[data-testid="stMetric"] label p {{
+            color: #555555 !important;
+            font-weight: 600 !important;
+        }}
+
+        div[data-testid="stMetric"] [data-testid="stMetricValue"] div {{
+            color: #121113 !important;
+            font-weight: 700 !important;
+        }}
+
+        div[data-testid="stVerticalBlock"] > div:has(div.stPlotlyChart) {{
             background: rgba(255, 255, 255, 0.65) !important;
             backdrop-filter: blur(12px) !important;
             border-radius: 16px !important;
