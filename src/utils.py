@@ -62,28 +62,6 @@ def set_jpg_background(jpg_file_path: str):
             border-color: #262730 !important;
         }}
 
-        section[data-testid="stSidebar"] div[data-baseweb="select"] > div {{
-            background-color: #1A1C23 !important;
-            border: 1px solid #30363D !important;
-            border-radius: 10px !important;
-        }}
-
-        section[data-testid="stSidebar"] span[data-baseweb="tag"] {{
-            background-color: #2D3139 !important;
-            border: 1px solid rgba(255, 255, 255, 0.1) !important;
-            border-radius: 6px !important;
-        }}
-
-        section[data-testid="stSidebar"] span[data-baseweb="tag"] span,
-        section[data-testid="stSidebar"] span[data-baseweb="tag"] svg {{
-            color: #FFFFFF !important;
-            fill: #FFFFFF !important;
-        }}
-
-        section[data-testid="stSidebar"] div[data-baseweb="select"] svg {{
-            fill: #8B949E !important;
-        }}
-
         div[data-testid="stMetric"] {{
             background: rgba(255, 255, 255, 0.65) !important;
             backdrop-filter: blur(12px) !important;

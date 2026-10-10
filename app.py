@@ -1,6 +1,7 @@
 import streamlit as st
 from pathlib import Path
 import warnings
+from src.charts import plot_accord_evolution
 from src.data_loader import load_cleaned_data
 from src.utils import set_jpg_background
 from src.components import render_sidebar, render_kpis
@@ -16,3 +17,8 @@ st.markdown("<h1 style='color: #121113; font-weight: 700;'>Perfume Analysis</h1>
 df = load_cleaned_data()
 filtered_df = render_sidebar(df)
 render_kpis(filtered_df)
+
+col_left, col_right = st.columns(2)
+
+with col_left:
+    plot_accord_evolution(filtered_df)
